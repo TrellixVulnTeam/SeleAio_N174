@@ -4,7 +4,6 @@ import aiohttp
 import asyncio
 
 
-
 with open('c.txt', 'r') as f:
     line = f.readlines()
     while True:
@@ -22,6 +21,6 @@ with open('c.txt', 'r') as f:
                     emails = em.emails
                     print(emails)
                     print("Results: %s" % results)
-            
+
                 except requests.exceptions.ReadTimeout :
                     print ("Too slow Mojo!")

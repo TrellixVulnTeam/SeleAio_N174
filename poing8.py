@@ -133,13 +133,13 @@ from extract_emails import ExtractEmails
 async def get(url):
     async with aiohttp.ClientSession() as session:
         async with session.get(url) as response:
-            return response.read()
+            return await response.read()
             em =ExtractEmails(url, depth = None, print_log=False, ssl_verify=True, user_agent=None, request_delay=0.0)
             emails = em.emails
             # if not emails:
                 # continue
-            # print(emails)
-            return await email
+            print(emails)
+            # return await email
 
 
 loop = asyncio.get_event_loop()
@@ -147,7 +147,7 @@ loop = asyncio.get_event_loop()
 coroutines = [get("https://www.taekwondoforums.com/")]
 
 results = loop.run_until_complete(asyncio.gather(*coroutines))
-asyncio.run(get(l))
+asyncio.run(get(str(results)))
 print("Results: %s" % results)
 
 
