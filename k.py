@@ -147,11 +147,11 @@
 
 
 import smtplib, ssl
-
+import part_1
 port = 587  # For starttls
 smtp_server = "smtp.gmail.com"
-sender_email = "siyamak1981@gmail.com"
-receiver_email = "sirat919@gmail.com"
+sender_email = "poingshop@gmail.com"
+receiver_email =part_1.exmaili
 password = input("Type your password and press enter:")
 message = """\
 Subject: Hi there

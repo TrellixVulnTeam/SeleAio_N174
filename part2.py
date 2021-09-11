@@ -4,17 +4,19 @@ from email import encoders
 from email.mime.base import MIMEBase
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
+import part_1
 context = ssl.create_default_context()
 server= smtplib.SMTP_SSL("smtp.gmail.com", 465, context=context)
-sender_email = ""
-password = ""
+sender_email = "poingshop@gmail.com"
+password = "09198859723"
 filename = ""
+subject="*******"
 def login():
     try:
         server.login(sender_email, password)
-    except Exception:
-        return("At least one of these two is wrong!!!!")
-receiver_email = []
+    except Exception as err:
+        print(err)
+receiver_email =part_1.exmaili
 text = ""
 def send_text_file():
     for i in receiver_email:
@@ -77,7 +79,7 @@ def send_text():
         message.attach(part1)
         text1 = message.as_string()
         server.sendmail(sender_email, i, text1)
-        server.sendmail(sender_email, i, text1)
+        # server.sendmail(sender_email, i, text1)
     server.quit()
 def send_file():
     for i in receiver_email:
@@ -115,3 +117,6 @@ def send_file():
 
         server.sendmail(sender_email, i, text1)
     server.quit()
+
+
+    # این یک تست است

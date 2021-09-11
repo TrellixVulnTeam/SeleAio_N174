@@ -13,7 +13,7 @@ from extract_emails.browsers import RequestsBrowser
   
 # #Setting the threshold of logger to DEBUG
 # logger.setLevel(logging.DEBUG)
-  
+exmaili = []
 def foo():
     data = {'User-Agent':'Mozilla/5.0 (iPhone; CPU iPhone OS 5_1 like Mac OS X) AppleWebKit/534.46 (KHTML, like Gecko) Version/5.1 Mobile/9B179 Safari/7534.48.3'}
     with open('c.txt', 'r') as f:
@@ -35,7 +35,11 @@ def foo():
                                 email_extractor = EmailExtractor(lhref, browser, depth=2)
                                 emails = email_extractor.get_emails()
                                 for email in emails:
-                                    print(email.as_dict(),t.getName())
+                                    # print(email.as_dict(),t.getName())
+                                    exmai = email.as_dict()["email"]
+                                    if not exmai in exmaili:
+                                        exmaili.append(exmai)
+                                    print(exmai)
                                     with open('emails.txt', 'a') as emailwrite:
                                         emailwrite.writelines(email.as_dict().get('email') + '\n')
 
@@ -74,10 +78,14 @@ def bar():
                             with RequestsBrowser() as browser:
                                 email_extractor = EmailExtractor(lhref, browser, depth=2)
                                 emails = email_extractor.get_emails()
-                            for email in emails:
-                                print(email.as_dict(),t2.getName())
-                                with open('emails.txt', 'a') as emailwrite:
-                                    emailwrite.writelines(email.as_dict().get('email') + '\n')
+                                for email in emails:
+                                    # print(email.as_dict(),t2.getName())
+                                    exmai = email.as_dict()["email"]
+                                    if not exmai in exmaili:
+                                        exmaili.append(exmai)
+                                    print(exmai)
+                                    with open('emails.txt', 'a') as emailwrite:
+                                        emailwrite.writelines(email.as_dict().get('email') + '\n')
                              
                     except Exception as err:
                         print(err)
@@ -113,10 +121,15 @@ def mar():
                             with RequestsBrowser() as browser:
                                 email_extractor = EmailExtractor(lhref, browser, depth=2)
                                 emails = email_extractor.get_emails()
-                            for email in emails:
-                                print(email.as_dict(),t3.getName())
-                                with open('emails.txt', 'a') as emailwrite:
-                                    emailwrite.writelines(email.as_dict().get('email') + '\n')
+                                for email in emails:
+                                    # print(email.as_dict(),t3.getName())
+                                    exmai = email.as_dict()["email"]
+                                    if not exmai in exmaili:
+                                        exmaili.append(exmai)
+                                    print(exmai)
+                                   
+                                    with open('emails.txt', 'a') as emailwrite:
+                                        emailwrite.writelines(email.as_dict().get('email') + '\n')
                                 
                     except Exception as err:
                         print(err)
@@ -152,10 +165,14 @@ def mar():
                             with RequestsBrowser() as browser:
                                 email_extractor = EmailExtractor(lhref, browser, depth=2)
                                 emails = email_extractor.get_emails()
-                            for email in emails:
-                                print(email.as_dict(),t4.getName())
-                                with open('emails.txt', 'a') as emailwrite:
-                                    emailwrite.writelines(email.as_dict().get('email') + '\n')
+                                for email in emails:
+                                    # print(email.as_dict(),t4.getName())
+                                    exmai = email.as_dict()["email"]
+                                    if not exmai in exmaili:
+                                        exmaili.append(exmai)
+                                    print(exmai)
+                                    with open('emails.txt', 'a') as emailwrite:
+                                        emailwrite.writelines(email.as_dict().get('email') + '\n')
                                
                     except Exception as err:
                         print(err)
@@ -176,3 +193,4 @@ if __name__ == "__main__":
     t.start()
   
 
+# این درست است

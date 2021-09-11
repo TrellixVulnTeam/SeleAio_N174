@@ -1,6 +1,7 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import *
+import part1
 from PyQt5.QtCore import Qt
 import part2
 from concurrent.futures import ThreadPoolExecutor
@@ -145,20 +146,20 @@ class Ui_MainWindow(object):
         try:
             radiobtn =self.sender()
             if radiobtn.isChecked():
-                # self.finish_pushButton.clicked.connect(part2.send_text)
-                print("1")
+                self.finish_pushButton.clicked.connect(part2.send_text)
+                # print("1")
         except Exception as err:
             print(err)
     def click_send_file_radioButton(self):
         radiobtn = self.sender()
         if radiobtn.isChecked():
-            # self.finish_pushButton.clicked.connect(part2.send_file)
-            print("2")
+            self.finish_pushButton.clicked.connect(part2.send_file)
+            # print("2")
     def click_send_text_file_radioButton(self):
         radiobtn = self.sender()
         if radiobtn.isChecked():
-            # self.finish_pushButton.clicked.connect(part2.send_text_file)
-            print("3")
+            self.finish_pushButton.clicked.connect(part2.send_text_file)
+            # print("3")
     def get_text_file(self):
         dialog =QFileDialog()
         dialog.setFileMode(QFileDialog.AnyFile)
@@ -192,6 +193,8 @@ class Ui_MainWindow(object):
             executer1.map(part1.extractatag, self.data)
         with ThreadPoolExecutor() as executer2:
             executer2.map(part1.extractemail, part1.ltags)
+        # with open('b.txt','a') as gg:
+        #     gg.writelines(part1.exmaili)
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))

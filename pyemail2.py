@@ -24,3 +24,4 @@ with open('c.txt', 'r') as f:
 
                 except requests.exceptions.ReadTimeout :
                     print ("Too slow Mojo!")
+# تست است
